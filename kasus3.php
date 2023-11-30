@@ -10,10 +10,26 @@
 <body>
     <h1>SISTEM PENILAIAN MAHASISWA</h1>
     <form method="post" action="">
-        Masukkan Nilai Tugas : <input type="uint" name="nilai_tugas" required></br></br>
-        Masukkan Nilai Ujian Tengah Semester : <input type="uint" name="uts" required></br></br>
-        Masukkan Nilai Ujian Akhir Semester : <input type="uint" name="uas" required></br></br>
-        <input type="submit" name="submit" value="Hitung">
+        <table>
+            <tr>
+                <td>Masukkan Nilai Tugas</td>
+                <td>:</td>
+                <td><input type="uint" name="nilai_tugas" required></br></td>
+            </tr>
+            <tr>
+                <td>Masukkan Nilai Ujian Tengah Semester</td>
+                <td>:</td>
+                <td><input type="uint" name="uts" required></br></td>
+            </tr>
+            <tr>
+                <td>Masukkan Nilai Ujian Akhir Semester</td>
+                <td>:</td>
+                <td><input type="uint" name="uas" required></br></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit" value="Hitung"></td>
+            </tr>
+        </table>
     </form>
 
     <?php
@@ -29,9 +45,9 @@
         $y = $_POST['uts'];
         $z = $_POST['uas'];
         // $a = $_POST['nilaiakhir'];
-        if($x>=0 && $x<=100 && $y >= 0 && $y <= 100 && $z >= 0 && $z <= 100){
+        if ($x >= 0 && $x <= 100 && $y >= 0 && $y <= 100 && $z >= 0 && $z <= 100) {
             $nilai_akhir = nilaiakhir($x, $y, $z);
-        } 
+        }
     }
 
     echo "</br>";
@@ -46,9 +62,9 @@
         echo  "C";
     } else if ($nilai_akhir >= 50 && $nilai_akhir < 60) {
         echo  "D";
-    } else if ($nilai_akhir>0 && $nilai_akhir<50){
+    } else if ($nilai_akhir > 0 && $nilai_akhir < 50) {
         echo "E";
-    } else{
+    } else {
         echo "-";
     }
     ?>
