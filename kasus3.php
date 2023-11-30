@@ -8,37 +8,48 @@
 </head>
 
 <body>
+    <h1>SISTEM PENILAIAN MAHASISWA</h1>
     <form method="post" action="">
-        Masukkan Nilai Tugas : <input type="number" name="nilai_tugas" required></br>
-        Masukkan Nilai Ujian Tengah Semester : <input type="number" name="uts" required></br>
-        Masukkan Nilai Ujian Akhir Semester : <input type="number" name="uas" required></br>
+        Masukkan Nilai Tugas : <input type="uint" name="nilai_tugas" required></br></br>
+        Masukkan Nilai Ujian Tengah Semester : <input type="uint" name="uts" required></br></br>
+        Masukkan Nilai Ujian Akhir Semester : <input type="uint" name="uas" required></br></br>
+        <input type="submit" name="submit" value="Hitung">
     </form>
 
     <?php
-        // function nilaitugas($x){
-        //     return $x * 0.3;
-        // }
-        // function nilaiuts($y){
-        //     return $y * 0.3;
-        // }
-        // function nilaiuas($z){
-        //     return $z * 0.4;
-        // }
-        function nilaiakhir($x, $y, $z){
-            return ($x * 0.3)+($y * 0.3)+($z * 0.4);
-        }
-        
-        $nilai_akhir = 0;
+    function nilaiakhir($x, $y, $z)
+    {
+        return ($x * 0.3) + ($y * 0.3) + ($z * 0.4);
+    }
 
-        if (isset($_POST['submit'])){
-            $x = $_POST['nilai_tugas'];
-            $y = $_POST['uts'];
-            $z = $_POST['uas'];
+    $nilai_akhir = 0;
 
-            $nilai_akhir = nilaiakhir($x, $y, $z);
-        }
+    if (isset($_POST['submit'])) {
+        $x = $_POST['nilai_tugas'];
+        $y = $_POST['uts'];
+        $z = $_POST['uas'];
+        // $a = $_POST['nilaiakhir'];
 
-        echo "Nilai Akhir = " . $nilai_akhir;
+        $nilai_akhir = nilaiakhir($x, $y, $z);
+    }
+
+    echo "</br>";
+    echo "Nilai Akhir = " . $nilai_akhir;
+    echo "</br>";
+    echo "Mahasiswa Mendapat Nilai ";
+    if ($nilai_akhir >= 80) {
+        echo "A";
+    } else if ($nilai_akhir >= 70 && $nilai_akhir < 80) {
+        echo  "B";
+    } else if ($nilai_akhir >= 60 && $nilai_akhir < 70) {
+        echo  "C";
+    } else if ($nilai_akhir >= 50 && $nilai_akhir < 60) {
+        echo  "D";
+    } else if ($nilai_akhir>0 && $nilai_akhir<50){
+        echo "E";
+    } else{
+        echo "-";
+    }
     ?>
 </body>
 
