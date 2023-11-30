@@ -29,8 +29,9 @@
         $y = $_POST['uts'];
         $z = $_POST['uas'];
         // $a = $_POST['nilaiakhir'];
-
-        $nilai_akhir = nilaiakhir($x, $y, $z);
+        if($x>=0 && $x<=100 && $y >= 0 && $y <= 100 && $z >= 0 && $z <= 100){
+            $nilai_akhir = nilaiakhir($x, $y, $z);
+        } 
     }
 
     echo "</br>";
